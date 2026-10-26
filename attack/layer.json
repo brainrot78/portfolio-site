@@ -1,0 +1,1111 @@
+{
+ "name": "Mohamed Amine Hammami: project coverage",
+ "versions": {
+  "attack": "17",
+  "navigator": "5.1.0",
+  "layer": "4.5"
+ },
+ "domain": "enterprise-attack",
+ "description": "Techniques my lab and personal projects detect, mitigate or respond to. 3 = detection + automated response, 2 = detection, 1 = mitigation/partial, 0 = known gap. Source: https://portfolio-site-psi-lovat.vercel.app/attack",
+ "sorting": 3,
+ "layout": {
+  "layout": "side",
+  "showID": true,
+  "showName": true,
+  "showAggregateScores": false
+ },
+ "hideDisabled": false,
+ "gradient": {
+  "colors": [
+   "#e8edf2",
+   "#9fe3c0",
+   "#3ddc97",
+   "#0b7a4f"
+  ],
+  "minValue": 0,
+  "maxValue": 3
+ },
+ "legendItems": [
+  {
+   "label": "Gap · next to build",
+   "color": "#e8edf2"
+  },
+  {
+   "label": "Mitigated",
+   "color": "#9fe3c0"
+  },
+  {
+   "label": "Detected",
+   "color": "#3ddc97"
+  },
+  {
+   "label": "Detected + automated response",
+   "color": "#0b7a4f"
+  }
+ ],
+ "showTacticRowBackground": true,
+ "tacticRowBackground": "#0a0e13",
+ "selectTechniquesAcrossTactics": true,
+ "techniques": [
+  {
+   "techniqueID": "T1595",
+   "tactic": "reconnaissance",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "T-Pot honeypot in the DMZ and Suricata log scanners; sources are pushed to MISP.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Active Scanning"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    },
+    {
+     "name": "project",
+     "value": "CTI & Exposure Monitoring"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1592",
+   "tactic": "reconnaissance",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "External exposure monitoring shows what an attacker can learn about exposed hosts.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Gather Victim Host Information"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "CTI & Exposure Monitoring"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1589",
+   "tactic": "reconnaissance",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Gather Victim Identity Information"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1583",
+   "tactic": "resource-development",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Attacker infrastructure tracked as indicators in MISP and OpenCTI.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Acquire Infrastructure"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    },
+    {
+     "name": "project",
+     "value": "CTI & Exposure Monitoring"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1588",
+   "tactic": "resource-development",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Exploit availability and known-exploited status checked when prioritizing vulnerabilities.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Obtain Capabilities"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "CTI & Exposure Monitoring"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1585",
+   "tactic": "resource-development",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Establish Accounts"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1190",
+   "tactic": "initial-access",
+   "score": 3,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "BunkerWeb + Naxsi WAF block injection in front of Nginx; SAST and DAST catch flaws before release.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Exploit Public-Facing Application"
+    },
+    {
+     "name": "level",
+     "value": "Detected + automated response"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    },
+    {
+     "name": "project",
+     "value": "DevSecOps Pipeline"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1566",
+   "tactic": "initial-access",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Phishing simulation and awareness campaign (40% fewer clicks); malicious attachments caught by EDR.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Phishing"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Phishing Simulation"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1133",
+   "tactic": "initial-access",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "No exposed admin services: remote access only through a hardened WireGuard VPN.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "External Remote Services"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1195.001",
+   "tactic": "initial-access",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "OWASP Dependency-Check and Trivy flag vulnerable or malicious dependencies in the pipeline.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Supply Chain: Compromise Software Dependencies"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "DevSecOps Pipeline"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1078",
+   "tactic": "initial-access",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "UEBA flags unusual logins and account behaviour.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Valid Accounts"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1189",
+   "tactic": "initial-access",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Drive-by Compromise"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1204",
+   "tactic": "execution",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Wazuh EDR with ML malware detection and YARA rules on endpoints.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "User Execution"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1059",
+   "tactic": "execution",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Custom Wazuh rules for suspicious shell and PowerShell activity.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Command and Scripting Interpreter"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1053",
+   "tactic": "execution",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Wazuh file integrity and log monitoring on task changes.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Scheduled Task/Job"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1047",
+   "tactic": "execution",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Windows Management Instrumentation"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1098",
+   "tactic": "persistence",
+   "score": 3,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "AD privilege escalation playbook: group membership changes trigger n8n and open a case.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Account Manipulation"
+    },
+    {
+     "name": "level",
+     "value": "Detected + automated response"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1136",
+   "tactic": "persistence",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Wazuh alerts on new local and domain accounts.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Create Account"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1547",
+   "tactic": "persistence",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "File integrity and registry monitoring on autostart locations.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Boot or Logon Autostart Execution"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1484",
+   "tactic": "privilege-escalation",
+   "score": 3,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "AD privilege escalation playbook with UEBA context.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Domain or Tenant Policy Modification"
+    },
+    {
+     "name": "level",
+     "value": "Detected + automated response"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1068",
+   "tactic": "privilege-escalation",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Risk-based vulnerability prioritization closes exploitable local flaws first.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Exploitation for Privilege Escalation"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "CTI & Exposure Monitoring"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1548",
+   "tactic": "privilege-escalation",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Abuse Elevation Control Mechanism"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1070.001",
+   "tactic": "defense-evasion",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Wazuh rule on audit log clearing.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Clear Windows Event Logs"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1562.001",
+   "tactic": "defense-evasion",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Alert when an EDR agent stops reporting.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Disable or Modify Tools"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1027",
+   "tactic": "defense-evasion",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "YARA rules and ML scoring on packed or obfuscated files.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Obfuscated Files or Information"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1110",
+   "tactic": "credential-access",
+   "score": 3,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "SSH brute force playbook: Wazuh detection, IP enrichment from MISP and OTX, case in TheHive.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Brute Force"
+    },
+    {
+     "name": "level",
+     "value": "Detected + automated response"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1552.001",
+   "tactic": "credential-access",
+   "score": 3,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Gitleaks scans code and full git history and fails the build on leaked secrets.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Unsecured Credentials: Credentials In Files"
+    },
+    {
+     "name": "level",
+     "value": "Detected + automated response"
+    },
+    {
+     "name": "project",
+     "value": "DevSecOps Pipeline"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1003",
+   "tactic": "credential-access",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Rules for access to credential stores on endpoints.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "OS Credential Dumping"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1555",
+   "tactic": "credential-access",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Credentials from Password Stores"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1046",
+   "tactic": "discovery",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Suricata and Snort detect internal scans; automated Nmap tests validate exposure.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Network Service Discovery"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1087",
+   "tactic": "discovery",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "UEBA baselines on directory enumeration.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Account Discovery"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1018",
+   "tactic": "discovery",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "IDS signatures for sweeps across segments.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Remote System Discovery"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1082",
+   "tactic": "discovery",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "System Information Discovery"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1021.004",
+   "tactic": "lateral-movement",
+   "score": 3,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "SSH brute force playbook plus segmentation with OPNsense between zones.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Remote Services: SSH"
+    },
+    {
+     "name": "level",
+     "value": "Detected + automated response"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1021.001",
+   "tactic": "lateral-movement",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Segmentation limits RDP between zones.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Remote Services: RDP"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1570",
+   "tactic": "lateral-movement",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Lateral Tool Transfer"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1005",
+   "tactic": "collection",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Data from Local System"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1119",
+   "tactic": "collection",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Automated Collection"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1560",
+   "tactic": "collection",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Archive Collected Data"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1071",
+   "tactic": "command-and-control",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Suricata with MISP-fed indicators flags known C2 traffic.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Application Layer Protocol"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1105",
+   "tactic": "command-and-control",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "IDS and EDR detect payload downloads.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Ingress Tool Transfer"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1571",
+   "tactic": "command-and-control",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Default-deny egress on pfSense and OPNsense.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Non-Standard Port"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1572",
+   "tactic": "command-and-control",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Protocol Tunneling"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1041",
+   "tactic": "exfiltration",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Egress filtering and IDS on outbound flows.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Exfiltration Over C2 Channel"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1048",
+   "tactic": "exfiltration",
+   "score": 1,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Default-deny egress blocks unexpected protocols.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Exfiltration Over Alternative Protocol"
+    },
+    {
+     "name": "level",
+     "value": "Mitigated"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1567",
+   "tactic": "exfiltration",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Exfiltration Over Web Service"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1498",
+   "tactic": "impact",
+   "score": 3,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Cloudflare DNS proxy and DDoS mitigation at the edge.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Network Denial of Service"
+    },
+    {
+     "name": "level",
+     "value": "Detected + automated response"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1499",
+   "tactic": "impact",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "WAF rate limiting in BunkerWeb.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Endpoint Denial of Service"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1486",
+   "tactic": "impact",
+   "score": 2,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "ML malware detection and Wazuh file integrity alerts on mass file changes.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Data Encrypted for Impact"
+    },
+    {
+     "name": "level",
+     "value": "Detected"
+    },
+    {
+     "name": "project",
+     "value": "Banking Security Platform"
+    }
+   ]
+  },
+  {
+   "techniqueID": "T1490",
+   "tactic": "impact",
+   "score": 0,
+   "enabled": true,
+   "showSubtechniques": false,
+   "comment": "Not covered yet.",
+   "metadata": [
+    {
+     "name": "name",
+     "value": "Inhibit System Recovery"
+    },
+    {
+     "name": "level",
+     "value": "Gap · next to build"
+    }
+   ]
+  }
+ ]
+}

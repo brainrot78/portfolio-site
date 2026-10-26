@@ -1,4 +1,4 @@
-For my engineering project (proposed by Gérance Informatique) I built and secured a bank-like infrastructure from the internet edge to the endpoint. Here's the short version of how it fits together. The [full case study](../projects/banking-security-platform.html) has more detail.
+For my engineering project (proposed by Gérance Informatique) I built and secured a bank-like infrastructure from the internet edge to the endpoint. Here's the short version of how it fits together. The [full case study](/projects/banking-security-platform) has more detail.
 
 ## Outside in
 

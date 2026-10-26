@@ -4,29 +4,46 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Next-Gen Banking Security Platform | Mohamed Amine Hammami</title>
-<meta name="description" content="A bank-like infrastructure secured in depth: layered firewalls, DMZ honeypot, IDS/IPS, self-learning WAF, EDR with ML, threat intelligence and SOAR.">
-<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<meta name="description" content="A bank-like infrastructure secured in depth: layered firewalls, DMZ honeypot, IDS/IPS, self-learning WAF, EDR with ML, threat intelligence and SOAR. Try the attack simulator.">
+<link rel="canonical" href="https://portfolio-site-psi-lovat.vercel.app/projects/banking-security-platform">
+<meta name="author" content="Mohamed Amine Hammami">
+<meta name="theme-color" content="#0a0e13">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mohamed Amine Hammami">
+<meta property="og:title" content="Next-Gen Banking Security Platform | Mohamed Amine Hammami">
+<meta property="og:description" content="A bank-like infrastructure secured in depth: layered firewalls, DMZ honeypot, IDS/IPS, self-learning WAF, EDR with ML, threat intelligence and SOAR. Try the attack simulator.">
+<meta property="og:url" content="https://portfolio-site-psi-lovat.vercel.app/projects/banking-security-platform">
+<meta property="og:image" content="https://portfolio-site-psi-lovat.vercel.app/og/banking.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Next-Gen Banking Security Platform | Mohamed Amine Hammami">
+<meta name="twitter:description" content="A bank-like infrastructure secured in depth: layered firewalls, DMZ honeypot, IDS/IPS, self-learning WAF, EDR with ML, threat intelligence and SOAR. Try the attack simulator.">
+<meta name="twitter:image" content="https://portfolio-site-psi-lovat.vercel.app/og/banking.png">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="/styles.css">
 <script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;else if(matchMedia('(prefers-color-scheme: light)').matches)document.documentElement.dataset.theme='light'}catch(e){}</script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 <header class="nav">
   <div class="wrap nav-in">
-    <a href="../index.html" class="logo" aria-label="Home"><span class="mono">~/</span>hammami</a>
+    <a href="/" class="logo" aria-label="Home"><span class="mono">~/</span>hammami</a>
     <nav aria-label="Primary">
       <ul class="nav-links" id="menu">
-        <li><a href="../index.html#about">About</a></li>
-        <li><a href="../index.html#experience">Experience</a></li>
-        <li><a href="../index.html#projects" class="active">Projects</a></li>
-        <li><a href="../index.html#skills">Skills</a></li>
-        <li><a href="../blog/index.html">Blog</a></li>
-        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#projects" class="active">Projects</a></li>
+        <li><a href="/attack">ATT&amp;CK</a></li>
+        <li><a href="/threats">Threat feed</a></li>
+        <li><a href="/toolbox">Toolbox</a></li>
+        <li><a href="/blog">Blog</a></li>
+        <li><a href="/#contact">Contact</a></li>
       </ul>
     </nav>
+    <button class="icon-btn term-btn mono" id="term-btn" aria-label="Open terminal (press the backtick key)" title="Terminal (`)">&gt;_</button>
     <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
       <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
     </button>
@@ -40,7 +57,7 @@
 <main id="main">
   <section class="page-hero">
     <div class="wrap">
-      <a class="back mono" href="../index.html#projects">← All projects</a>
+      <a class="back mono" href="/#projects">← All projects</a>
       <p class="eyebrow mono">Case study · Nov 2024 – Apr 2025</p>
       <h1>Next-Gen Banking<br>Security Platform</h1>
       <p class="lead">A university project, proposed by Gérance Informatique, to design and secure a bank-like infrastructure from the internet edge down to the endpoint, with one SOC that sees everything, enriches it and responds automatically.</p>
@@ -66,36 +83,50 @@
     </div>
   </section>
 
+  <section class="sec" id="sim">
+    <div class="wrap">
+      <p class="eyebrow mono">02 / Attack simulator</p>
+      <h2>Throw an attack at it</h2>
+      <p class="lead narrow">Pick an attack and follow it through the seven layers to see where it gets stopped and what the SOC does next. Click a layer to read how it works.</p>
+      <div class="chips" id="sim-attacks" aria-label="Choose an attack"></div>
+      <div class="sim-lane" id="sim-lane"></div>
+      <div class="sim-console">
+        <div class="sim-console-head mono"><span>soc@bank-lab:~$ tail -f alerts.log</span><span class="sim-verdict mono" id="sim-verdict" aria-live="polite"></span></div>
+        <ol class="sim-log" id="sim-log"></ol>
+      </div>
+    </div>
+  </section>
+
   <section class="sec">
     <div class="wrap">
-      <p class="eyebrow mono">02 / Architecture</p>
+      <p class="eyebrow mono">03 / Architecture</p>
       <h2>Seven layers, outside in</h2>
       <ol class="layers">
-        <li>
+        <li id="layer-1">
           <span class="layer-n mono">L1</span>
           <div><h3>Edge: DNS &amp; DDoS protection</h3><p>Public DNS and DDoS mitigation through Cloudflare, which also keeps the origin IP hidden.</p><p class="tags"><span>Cloudflare</span></p></div>
         </li>
-        <li>
+        <li id="layer-2">
           <span class="layer-n mono">L2</span>
           <div><h3>Perimeter firewall &amp; remote access</h3><p>pfSense at the perimeter with strict ingress rules. Admin access only through a hardened WireGuard VPN, with nothing exposed directly.</p><p class="tags"><span>pfSense</span><span>WireGuard</span></p></div>
         </li>
-        <li>
+        <li id="layer-3">
           <span class="layer-n mono">L3</span>
           <div><h3>DMZ: web tier &amp; deception</h3><p>An Nginx reverse proxy behind BunkerWeb and the Naxsi WAF. Naxsi runs in learning mode to build its allow-list from real traffic, then switches to blocking. A T-Pot honeypot in the DMZ attracts attackers and gathers their indicators.</p><p class="tags"><span>Nginx</span><span>BunkerWeb</span><span>Naxsi</span><span>T-Pot</span></p></div>
         </li>
-        <li>
+        <li id="layer-4">
           <span class="layer-n mono">L4</span>
           <div><h3>Network IDS / IPS</h3><p>Suricata and Snort inspect traffic between zones, raising alerts and blocking known-bad patterns.</p><p class="tags"><span>Suricata</span><span>Snort</span></p></div>
         </li>
-        <li>
+        <li id="layer-5">
           <span class="layer-n mono">L5</span>
           <div><h3>Internal segmentation</h3><p>A second firewall, OPNsense, separates the DMZ, server, user and SOC zones, so a compromise in one zone can't spread freely.</p><p class="tags"><span>OPNsense</span></p></div>
         </li>
-        <li>
+        <li id="layer-6">
           <span class="layer-n mono">L6</span>
           <div><h3>Endpoints &amp; servers</h3><p>Application servers, Active Directory, a NAS and user endpoints, each running a Wazuh agent for EDR. On top of that sit ML-based malware detection and UEBA to spot unusual user and host behaviour.</p><p class="tags"><span>Wazuh EDR</span><span>ML malware detection</span><span>UEBA</span><span>Active Directory</span><span>NAS</span></p></div>
         </li>
-        <li class="soc">
+        <li id="layer-7" class="soc">
           <span class="layer-n mono">L7</span>
           <div><h3>SOC: intelligence &amp; response</h3><p>Wazuh as the central SIEM. MISP and OpenCTI for threat intelligence, enriched from public sources such as AlienVault OTX and with AI-generated context. n8n for SOAR, with TheHive and DFIR-IRIS for cases and ticketing.</p><p class="tags"><span>Wazuh</span><span>MISP</span><span>OpenCTI</span><span>AlienVault OTX</span><span>n8n</span><span>TheHive</span><span>DFIR-IRIS</span></p></div>
         </li>
@@ -105,7 +136,7 @@
 
   <section class="sec">
     <div class="wrap">
-      <p class="eyebrow mono">03 / Automated response</p>
+      <p class="eyebrow mono">04 / Automated response</p>
       <h2>Playbooks for the alerts that matter most</h2>
       <p class="lead narrow">Each playbook follows the same path: <span class="mono hl">detect → enrich → score → open case → respond → report</span>. The n8n workflow pulls context from MISP, OpenCTI and public reputation sources, then opens a case in TheHive or DFIR-IRIS so the analyst starts with everything already gathered.</p>
       <div class="cards three">
@@ -146,7 +177,7 @@
   <section class="sec">
     <div class="wrap grid-2">
       <div>
-        <p class="eyebrow mono">04 / Takeaways</p>
+        <p class="eyebrow mono">05 / Takeaways</p>
         <h2>What I learned</h2>
       </div>
       <div class="prose">
@@ -161,7 +192,7 @@
     <div class="wrap">
       <div class="next">
         <span class="mono">Next case study</span>
-        <a href="devsecops-pipeline.html">Shift-Left DevSecOps Pipeline →</a>
+        <a href="/projects/devsecops-pipeline">Shift-Left DevSecOps Pipeline →</a>
       </div>
     </div>
   </section>
@@ -170,9 +201,12 @@
 <footer class="foot">
   <div class="wrap foot-in mono">
     <span>© <span id="year">2026</span> Mohamed Amine Hammami</span>
-    <a href="../index.html">Home</a>
+    <span class="foot-links"><a href="/attack">ATT&amp;CK</a><a href="/threats">Threat feed</a><a href="/toolbox">Toolbox</a><button type="button" class="linklike" data-term>Terminal <kbd>`</kbd></button></span>
   </div>
 </footer>
-<script src="../script.js"></script>
+
+<script src="/js/simulator.js"></script>
+<script src="/script.js"></script>
+<script src="/js/terminal.js"></script>
 </body>
 </html>

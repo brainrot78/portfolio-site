@@ -70,7 +70,7 @@
         posts.sort(byDate);
         if (limit) posts = posts.slice(0, limit);
         list.innerHTML = posts.map(function (p) {
-          return '<a class="post-item" href="' + base + 'post.html?p=' + encodeURIComponent(p.slug) + '">' +
+          return '<a class="post-item" href="/blog/' + encodeURIComponent(p.slug) + '">' +
             '<span class="post-date mono">' + esc(fmtDate(p.date)) + '</span>' +
             '<span class="post-main"><b>' + esc(p.title) + '</b><small>' + esc(p.summary || '') + '</small></span>' +
             '<span class="post-arrow" aria-hidden="true">→</span></a>';
@@ -84,12 +84,14 @@
   // Single post
   var body = document.getElementById('post-body');
   if (body) {
-    var slug = new URLSearchParams(location.search).get('p') || '';
+    // Clean URL: /blog/<slug> (rewritten to post.html by vercel.json); ?p=<slug> still works
+    var m = location.pathname.match(/^\/blog\/([a-z0-9-]+)\/?$/i);
+    var slug = (m && m[1] !== 'post') ? m[1] : (new URLSearchParams(location.search).get('p') || '');
     var titleEl = document.getElementById('post-title');
     if (!/^[a-z0-9-]+$/i.test(slug)) { titleEl.textContent = 'Post not found'; return; }
     Promise.all([
-      fetch('posts.json').then(function (r) { return r.json(); }),
-      fetch('posts/' + slug + '.md').then(function (r) { if (!r.ok) throw new Error('404'); return r.text(); })
+      fetch('/blog/posts.json').then(function (r) { return r.json(); }),
+      fetch('/blog/posts/' + slug + '.md').then(function (r) { if (!r.ok) throw new Error('404'); return r.text(); })
     ]).then(function (res) {
       var meta = res[0].filter(function (p) { return p.slug === slug; })[0] || { title: slug, date: '' };
       document.title = meta.title + ' | Mohamed Amine Hammami';
@@ -99,7 +101,7 @@
       body.innerHTML = window.marked ? window.marked.parse(res[1]) : '<pre>' + esc(res[1]) + '</pre>';
     }).catch(function () {
       titleEl.textContent = 'Post not found';
-      body.innerHTML = '<p><a href="index.html">Back to all posts</a></p>';
+      body.innerHTML = '<p><a href="/blog">Back to all posts</a></p>';
     });
   }
 
