@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "deterministic-verdicts-with-ai",
+    "title": "AI in the SOC: keep the verdict deterministic",
+    "date": "2026-10-01",
+    "summary": "Where I let LLMs help in security automation, and the one place I never let them decide.",
+    "tags": ["SOAR", "AI", "Threat Intelligence"]
+  },
+  {
+    "slug": "shift-left-devsecops-pipeline",
+    "title": "Shift-left in practice: building a DevSecOps pipeline",
+    "date": "2025-12-20",
+    "summary": "Secrets, SAST, SCA, container scanning and DAST in one Jenkins pipeline, plus why DefectDojo is the piece that makes it usable.",
+    "tags": ["DevSecOps", "Jenkins", "DefectDojo"]
+  },
+  {
+    "slug": "building-a-bank-like-security-lab",
+    "title": "Building a bank-like security lab, layer by layer",
+    "date": "2025-05-10",
+    "summary": "Seven layers of defence, a honeypot in the DMZ and a SOC that responds on its own. Lessons from my engineering project.",
+    "tags": ["Network Security", "SOC", "Homelab"]
+  }
+]

@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shift-Left DevSecOps Pipeline | Mohamed Amine Hammami</title>
+<meta name="description" content="A Jenkins CI/CD pipeline with secret detection, SAST, SCA, container scanning and DAST, with every finding tracked in DefectDojo.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t;else if(matchMedia('(prefers-color-scheme: light)').matches)document.documentElement.dataset.theme='light'}catch(e){}</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="nav">
+  <div class="wrap nav-in">
+    <a href="../index.html" class="logo" aria-label="Home"><span class="mono">~/</span>hammami</a>
+    <nav aria-label="Primary">
+      <ul class="nav-links" id="menu">
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects" class="active">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../blog/index.html">Blog</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="icon-btn menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="menu">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="icon-btn" id="theme" aria-label="Toggle colour theme">
+      <svg class="i-sun" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      <svg class="i-moon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <a class="back mono" href="../index.html#projects">← All projects</a>
+      <p class="eyebrow mono">Case study · Sep 2025 – Dec 2025</p>
+      <h1>Shift-Left<br>DevSecOps Pipeline</h1>
+      <p class="lead">A Jenkins CI/CD pipeline for Spring Boot applications in which every stage runs a security check: leaked secrets, insecure code, vulnerable dependencies, risky container images and live web flaws. All findings end up in one place, DefectDojo.</p>
+      <dl class="stats">
+        <div><dt>Security checks</dt><dd>5</dd></div>
+        <div><dt>Pipeline stages</dt><dd>8</dd></div>
+        <div><dt>Findings dashboard</dt><dd>1</dd></div>
+        <div><dt>Application stack</dt><dd>Spring Boot</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap grid-2">
+      <div>
+        <p class="eyebrow mono">01 / Why shift left</p>
+        <h2>Find it at commit,<br>not in production.</h2>
+      </div>
+      <div class="prose">
+        <p>A vulnerability costs the least to fix when the developer who wrote it is still looking at the code. Shift-left means moving security checks as early in the pipeline as possible, so problems are caught automatically on every commit instead of during a pentest weeks later.</p>
+        <p>I wanted a pipeline that covers the whole attack surface of a modern app: <strong>the source code</strong>, <strong>the secrets around it</strong>, <strong>the open-source libraries it depends on</strong>, <strong>the container it ships in</strong> and <strong>the running application</strong>. Each stage also needed to feed one dashboard, so nothing gets lost across five separate reports.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="eyebrow mono">02 / The pipeline</p>
+      <h2>Stage by stage</h2>
+      <ol class="pipeline">
+        <li><span class="mono">01</span><b>Checkout</b><small>Jenkins pulls the Spring Boot repo on every push</small></li>
+        <li class="sec-stage"><span class="mono">02 · Secrets</span><b>Gitleaks</b><small>Leaked keys and tokens in code and git history</small></li>
+        <li class="sec-stage"><span class="mono">03 · SAST</span><b>SonarQube</b><small>Static analysis plus a quality gate</small></li>
+        <li class="sec-stage"><span class="mono">04 · SCA</span><b>OWASP Dependency-Check</b><small>Known CVEs in third-party libraries</small></li>
+        <li><span class="mono">05</span><b>Build &amp; image</b><small>Maven build, then the Docker image</small></li>
+        <li class="sec-stage"><span class="mono">06 · Container</span><b>Trivy</b><small>OS packages, libraries and misconfigurations in the image</small></li>
+        <li class="sec-stage"><span class="mono">07 · DAST</span><b>Nikto</b><small>Scans the running app for web server flaws</small></li>
+        <li class="hub"><span class="mono">08 · Report</span><b>DefectDojo</b><small>Imports results, removes duplicates, tracks fixes</small></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <p class="eyebrow mono">03 / What each check catches</p>
+      <h2>Five lenses on one app</h2>
+      <div class="cards three">
+        <article class="card">
+          <p class="card-meta mono">Secret leak detection</p>
+          <h3>Gitleaks</h3>
+          <p>Scans the codebase and the full commit history for API keys, passwords, tokens and private keys. A secret that has been committed is already exposed, so this check runs first.</p>
+        </article>
+        <article class="card">
+          <p class="card-meta mono">SAST</p>
+          <h3>SonarQube</h3>
+          <p>Analyses the Java source for vulnerabilities, security hotspots and code smells. A quality gate decides whether the build is good enough to continue.</p>
+        </article>
+        <article class="card">
+          <p class="card-meta mono">SCA</p>
+          <h3>OWASP Dependency-Check</h3>
+          <p>Matches every Maven dependency against known CVEs. Most of an application's code comes from libraries, and this is where many real-world breaches start.</p>
+        </article>
+        <article class="card">
+          <p class="card-meta mono">Container scanning</p>
+          <h3>Trivy</h3>
+          <p>Scans the built Docker image for vulnerable OS packages and libraries, and for misconfigurations, before the image is deployed anywhere.</p>
+        </article>
+        <article class="card">
+          <p class="card-meta mono">DAST</p>
+          <h3>Nikto</h3>
+          <p>Tests the application while it is running: server misconfigurations, dangerous files, outdated components. These are problems you only see once the app is live.</p>
+        </article>
+        <article class="card">
+          <p class="card-meta mono">Vulnerability management</p>
+          <h3>DefectDojo</h3>
+          <p>Every scanner's report is imported into one product view. Duplicates are merged, findings are triaged, and each one is tracked from open to verified fix.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap grid-2">
+      <div>
+        <p class="eyebrow mono">04 / Takeaways</p>
+        <h2>What I learned</h2>
+      </div>
+      <div class="prose">
+        <p><strong>Noise kills adoption.</strong> Five scanners produce a lot of overlapping results. Without deduplication in DefectDojo, developers would stop reading the reports within a week.</p>
+        <p><strong>Order matters.</strong> Cheap, fast checks (secrets, SAST) run first and fail fast. Slower checks (container scanning, DAST) run only on builds that pass them.</p>
+        <p><strong>Security should feel like testing.</strong> When security checks sit in the same pipeline as unit tests, they become part of "done" instead of a separate gate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec contact">
+    <div class="wrap">
+      <div class="next">
+        <span class="mono">Next case study</span>
+        <a href="banking-security-platform.html">Next-Gen Banking Security Platform →</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in mono">
+    <span>© <span id="year">2026</span> Mohamed Amine Hammami</span>
+    <a href="../index.html">Home</a>
+  </div>
+</footer>
+<script src="../script.js"></script>
+</body>
+</html>
